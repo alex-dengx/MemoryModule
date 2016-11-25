@@ -73,15 +73,7 @@ typedef struct {
 static void
 OutputLastError(const char *msg)
 {
-    LPVOID tmp;
-    char *tmpmsg;
-    FormatMessage(FORMAT_MESSAGE_ALLOCATE_BUFFER | FORMAT_MESSAGE_FROM_SYSTEM | FORMAT_MESSAGE_IGNORE_INSERTS,
-        NULL, GetLastError(), MAKELANGID(LANG_NEUTRAL, SUBLANG_DEFAULT), (LPTSTR)&tmp, 0, NULL);
-    tmpmsg = (char *)LocalAlloc(LPTR, strlen(msg) + strlen(tmp) + 3);
-    sprintf(tmpmsg, "%s: %s", msg, tmp);
-    OutputDebugString(tmpmsg);
-    LocalFree(tmpmsg);
-    LocalFree(tmp);
+  
 }
 #endif
 
